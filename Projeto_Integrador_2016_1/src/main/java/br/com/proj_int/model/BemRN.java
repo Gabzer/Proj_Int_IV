@@ -105,8 +105,6 @@ public class BemRN {
 		g_p = b.getVv() - b.getVc();
 		b.setG_p(g_p);
 		///////////////////////
-		
-
 		System.out.println(b);
 		
 		return b;		
