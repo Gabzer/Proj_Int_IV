@@ -134,9 +134,12 @@ public class Bem {
 
 	@Override
 	public String toString() {
-		return "Bem [id=" + id + ", nome=" + nome + "]";
+		return "Bem [id=" + id + ", nome=" + nome + ", vd_util=" + vd_util
+				+ ", turno=" + turno + ", dataAquisicao=" + dataAquisicao
+				+ ", dataReferencia=" + dataReferencia + ", cb=" + cb + ", vr="
+				+ vr + ", i=" + i + ", n=" + n + ", da=" + da + ", vc=" + vc
+				+ ", vv=" + vv + ", g_p=" + g_p + "]";
 	}
-	
 	
 
 }
