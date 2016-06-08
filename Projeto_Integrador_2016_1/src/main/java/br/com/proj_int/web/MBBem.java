@@ -15,7 +15,7 @@ public class MBBem implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private Bem bem = new Bem();
-	Bem bem2 = null;
+	//Bem bem2 = null;
 	private List<Bem> lsBens = null;
 
 	public List<Bem> getActionListar() {
@@ -26,9 +26,18 @@ public class MBBem implements Serializable{
 	
 	public String actionCalcular() {
 		System.out.println(bem.getId() + " aquiMB ");
-		bem2 = new Bem();
 		BemRN bemRN = new BemRN();
-		bem2 = bemRN.calcular(bem);
+		Bem bem2 = bemRN.calcular(bem);
+		if (bem2.getTurno() == 100){
+			bem2.setTurno(1);
+		} else {
+			if (bem2.getTurno() == 150){
+				bem2.setTurno(2);
+			} else {
+				bem2.setTurno(3);
+			}
+		}
+		System.out.println("Bem2 MB " + bem2);
 		return "resultado";
 	}
 	

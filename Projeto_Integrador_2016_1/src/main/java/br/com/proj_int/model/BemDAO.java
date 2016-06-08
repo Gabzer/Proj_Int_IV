@@ -87,7 +87,6 @@ public class BemDAO implements IBemDAO {
 				b.setNome(rs.getString("tipo"));
 				b.setVd_util(rs.getInt("vida_util"));
 				b.setVr(rs.getDouble("valor_residual"));
-				System.out.println(b.getId() + " " + b.getNome() + " " + b.getVd_util() + " " + b.getVr());
 				bem2 = b;
 			}
 		}catch (Exception e){

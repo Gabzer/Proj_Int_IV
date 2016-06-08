@@ -22,15 +22,11 @@ public class BemRN {
 	public Bem calcular(Bem bem){
 		b = bemDAO.selectById(bem);
 		
-		//b.setNome(bem.getNome());
-		//b.setVd_util(bem.getVd_util());
 		b.setTurno(bem.getTurno());
 		b.setDataAquisicao(bem.getDataAquisicao());
 		b.setDataReferencia(bem.getDataReferencia());
 		b.setCb(bem.getCb());
-		//b.setVr(bem.getVr());
-		b.setVv(bem.getVv());
-		
+		b.setVv(bem.getVv());		
 		
 		//////////////////////////calculo do tempo (N)//////////////////////////
 		////////////////////////////////////////////////////////////////////////
