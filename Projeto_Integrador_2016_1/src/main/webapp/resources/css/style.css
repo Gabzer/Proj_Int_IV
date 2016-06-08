@@ -1,0 +1,26 @@
+#container {
+	width: 800px;
+	height: 600px;
+}
+#cabecalho{
+	height: 10%;
+	widht: 100%;
+	text-align: center;
+}
+#rodape {
+	width: 100%;
+	height: 20%;
+	text-align: center;
+}
+#principal {
+	position:relative;
+	width: 80%;
+	height: 100%;
+	float: left;
+}
+#menu {
+	position:relative;
+	width: 20%;
+	height: 100%;
+	float: left;	
+}
