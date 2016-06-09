@@ -6,12 +6,11 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:form>
-	<h:panelGrid>
-		<h:commandLink value="Home"  action="home"/>
-		<h:commandLink value="Incluir Usuário"  />
-		<h:commandLink value="Incluir Patrimônio"  action="form_patrimonio"/>
-		<h:commandLink value="Calcular"  action="#{mbuser.actionProcurar}"/>
-	</h:panelGrid>
-</h:form>
+<ui:composition template="/template/layout.xhtml">
+	<ui:define name="principal">
+		<div align="center">
+			<h1>BEM VINDO !</h1>
+		</div>
+	</ui:define>
+</ui:composition>
 </html>

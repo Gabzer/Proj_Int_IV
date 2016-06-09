@@ -1,15 +1,14 @@
 package br.com.proj_int.model;
 
-
 public class Bem {
-	
+
 	private int id;
 	private String nome;
 	private int vd_util;
 	private int turno;
+	private int temp_uso;
 	private String dataAquisicao;
 	private String dataReferencia;
-	
 
 	private double cb;
 	private double vr;
@@ -141,5 +140,12 @@ public class Bem {
 				+ ", vv=" + vv + ", g_p=" + g_p + "]";
 	}
 	
+	public int getTemp_uso() {
+		return temp_uso;
+	}
+
+	public void setTemp_uso(int temp_uso) {
+		this.temp_uso = temp_uso;
+	}
 
 }

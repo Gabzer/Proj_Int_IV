@@ -11,11 +11,12 @@
 		<div align="center">
 			<h:form>
 				<h:panelGrid columns="2">
-					<h:outputLabel value="Data da Aquisição: " />
-					<h:inputText value="#{mbbem.bem.dataAquisicao}"  
-						maxlength="10" onkeypress="formatarData('##/##/####', this);" />
-					<h:outputLabel value="Valor da Aquisição: " />
-					<h:inputText value="#{mbbem.bem.cb}" />
+					<h:outputLabel value="Tipo de Patrimônio: " />
+					<h:selectOneMenu value="#{mbbem.bem.id}">
+						<f:selectItems value="#{mbbem.actionListar}" var="objPatrimonio"
+						itemLabel="#{objPatrimonio.nome}"
+						itemValue="#{objPatrimonio.id}" />					
+					</h:selectOneMenu>
 					<h:outputLabel value="Turnos Trabalhados: " />
 					<h:selectOneMenu value="#{mbbem.bem.turno}">
 						<f:selectItem itemLabel="1" itemValue="100" />
@@ -27,12 +28,6 @@
 						maxlength="10" onkeypress="formatarData('##/##/####', this);" />
 					<h:outputLabel value="Valor de Venda: " />
 					<h:inputText value="#{mbbem.bem.vv}" />
-					<h:outputLabel value="Tipo de Patrimônio: " />
-					<h:selectOneMenu value="#{mbbem.bem.id}">
-						<f:selectItems value="#{mbbem.actionListar}" var="objPatrimonio"
-						itemLabel="#{objPatrimonio.nome}"
-						itemValue="#{objPatrimonio.id}" />					
-					</h:selectOneMenu>
 				</h:panelGrid>
 				<h:commandButton value="Calcular" action="#{mbbem.actionCalcular}" />
 			</h:form>

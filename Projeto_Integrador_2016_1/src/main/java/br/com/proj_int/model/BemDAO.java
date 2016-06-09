@@ -24,7 +24,25 @@ public class BemDAO implements IBemDAO {
 	@Override
 	public void insert(Bem bem) {
 		// TODO Auto-generated method stub
-
+		Connection conexao = null;
+		PreparedStatement psInsert = null;
+		String sql = "INSERT INTO patrimonio (tipo, vida_util, valor_residual, data_compra, valor_bem, condicao_bem)"
+				+ " VALUES (?, ?, ?, ?, ?, ?)";
+		try {
+			conexao = this.conexao;
+			psInsert = conexao.prepareStatement(sql);			
+			psInsert.setString(1, bem.getNome());
+			psInsert.setInt(2, bem.getVd_util());
+			psInsert.setDouble(3, bem.getVr());
+			psInsert.setString(4, bem.getDataAquisicao());
+			psInsert.setDouble(5, bem.getCb());
+			psInsert.setInt(6, bem.getTemp_uso());
+			psInsert.executeUpdate();
+		}catch (Exception e){
+			System.err.println("----------------------");
+			System.err.println("Erro no insert_Bem");
+			e.printStackTrace();			
+		}
 	}
 
 	@Override

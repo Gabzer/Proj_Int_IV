@@ -19,7 +19,14 @@ public class BemRN {
 		return lsBens;
 	}
 	
+	public void salvar (Bem bem){
+		this.bemDAO.insert(bem);
+	}
+	
 	public Bem calcular(Bem bem){
+		if (bem.getTemp_uso() > bem.getVd_util() / 2){
+			bem.getVd_util() = bem.getVd_util / 2;
+		}
 		b = bemDAO.selectById(bem);
 		
 		b.setTurno(bem.getTurno());
@@ -33,7 +40,6 @@ public class BemRN {
 		////anos
 		int anos = 0;
 		double tempo = 0.0;
-		System.out.println(b.getId() + b.getNome() + b.getVd_util() + " " + b.getVr() + " " + b.getDataAquisicao() + " aquiRN");
 		int ano1 = Integer.parseInt(b.getDataAquisicao().substring(6, 10));
 		int ano2 = Integer.parseInt(b.getDataReferencia().substring(6, 10));
 		anos = ano2 - ano1 - 1;
@@ -101,7 +107,6 @@ public class BemRN {
 		g_p = b.getVv() - b.getVc();
 		b.setG_p(g_p);
 		///////////////////////
-		System.out.println(b);
 		
 		return b;		
 	}

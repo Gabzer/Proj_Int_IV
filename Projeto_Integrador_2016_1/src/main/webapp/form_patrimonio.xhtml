@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/template/layout.xhtml">
+	<ui:define name="principal">
+		<div align="center">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Tipo de Patrimônio: " />
+					<h:inputText value="#{mbbem.bem.nome}" />
+					<h:outputLabel value="Vida Útil: " />
+					<h:inputText value="#{mbbem.bem.vd_util}" />
+					<h:outputLabel value="Valor Residual" />
+					<h:inputText value="#{mbbem.bem.vr}" />
+					<h:outputLabel value="Data da Aquisição: "/>
+					<h:inputText value="#{mbbem.bem.dataAquisicao}" 
+						maxlength="10" onkeypress="formatarData('##/##/####', this);"/>
+					<h:outputLabel value="Valor de compra: " />
+					<h:inputText value="#{mbbem.bem.cb}" />
+					<h:outputLabel value="Se usado, quanto tempo: " />
+					<h:inputText value="#{mbbem.bem.temp_uso}"/>
+				</h:panelGrid>
+				<h:commandButton value="Salvar" action="#{mbbem.actionSalvar}"/>
+			</h:form>
+		</div>
+	</ui:define>
+</ui:composition>
+</html>

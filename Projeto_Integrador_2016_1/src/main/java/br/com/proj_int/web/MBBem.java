@@ -24,8 +24,13 @@ public class MBBem implements Serializable{
 		return lsBens;
 	}
 	
+	public String actionSalvar (){
+		BemRN bemRN = new BemRN();
+		bemRN.salvar(bem);
+		return "contabilidade";
+	}
+	
 	public String actionCalcular() {
-		System.out.println(bem.getId() + " aquiMB ");
 		BemRN bemRN = new BemRN();
 		Bem bem2 = bemRN.calcular(bem);
 		if (bem2.getTurno() == 100){
@@ -44,8 +49,6 @@ public class MBBem implements Serializable{
 		bem.setDa(bem2.getDa());
 		bem.setVc(bem2.getVc());
 		bem.setG_p(bem2.getG_p());
-		System.out.println("Bem2 MB " + bem2);
-		System.out.println("Bem MB " + bem);
 		return "resultado";
 	}
 	
