@@ -15,7 +15,7 @@ public class MBBem implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	private Bem bem = new Bem();
-	//Bem bem2 = null;
+	Bem bem2 = null;
 	private List<Bem> lsBens = null;
 
 	public List<Bem> getActionListar() {
@@ -37,7 +37,15 @@ public class MBBem implements Serializable{
 				bem2.setTurno(3);
 			}
 		}
+		bem.setNome(bem2.getNome());
+		bem.setVd_util(bem2.getVd_util());
+		bem.setTurno(bem2.getTurno());
+		bem.setVr(bem2.getVr());
+		bem.setDa(bem2.getDa());
+		bem.setVc(bem2.getVc());
+		bem.setG_p(bem2.getG_p());
 		System.out.println("Bem2 MB " + bem2);
+		System.out.println("Bem MB " + bem);
 		return "resultado";
 	}
 	
