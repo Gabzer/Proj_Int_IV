@@ -27,13 +27,12 @@ public class MBUsuario implements Serializable {
 			return "contabilidade?faces-redirect=true";
 		}
 	}
-
-	public List<Usuario> getActionListar() {
-		UsuarioRN userRN = new UsuarioRN();
-		List<Usuario> lsUser = userRN.listar(user);
-		return lsUser;
-	}
 	
+	public String actionSalvar (){
+		UsuarioRN userRN = new UsuarioRN();
+		userRN.salvar(user);
+		return "home";
+	}
 	
 	///////////////////gets-setters//////////////////
 	/////////////////////////////////////////////////

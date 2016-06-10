@@ -5,7 +5,6 @@ public class Usuario {
 	private int id;
 	private String login;
 	private String senha;
-	private String tipo;
 
 	public int getId() {
 		return id;
@@ -31,18 +30,10 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getTipo() {
-		return tipo;
-	}
-
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
-	}
-
 	@Override
 	public String toString() {
 		return "Usuario [id=" + id + ", login=" + login + ", senha=" + senha
-				+ ", tipo=" + tipo + "]";
+				+  "]";
 	}
 	
 	

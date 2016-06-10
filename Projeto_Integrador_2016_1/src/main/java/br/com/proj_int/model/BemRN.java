@@ -23,16 +23,11 @@ public class BemRN {
 		this.bemDAO.insert(bem);
 	}
 	
-	public Bem calcular(Bem bem){
-		if (bem.getTemp_uso() > bem.getVd_util() / 2){
-			bem.getVd_util() = bem.getVd_util / 2;
-		}
-		b = bemDAO.selectById(bem);
-		
+	public Bem calcular(Bem bem){		
+		b = bemDAO.selectById(bem);		
+				
 		b.setTurno(bem.getTurno());
-		b.setDataAquisicao(bem.getDataAquisicao());
 		b.setDataReferencia(bem.getDataReferencia());
-		b.setCb(bem.getCb());
 		b.setVv(bem.getVv());		
 		
 		//////////////////////////calculo do tempo (N)//////////////////////////
@@ -84,7 +79,12 @@ public class BemRN {
 		//////////////////////////Taxa anual (I)/////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////
 		double i = 0.0;
-		i = b.getTurno() / b.getVd_util();
+		if (b.getTemp_uso() > b.getVd_util() / 2){
+			b.setTemp_uso(b.getVd_util() / 2);
+			i = b.getTurno() / b.getTemp_uso();
+		} else{
+			i = b.getTurno() / b.getVd_util();
+		}
 		i = i / 100;
 		b.setI(i);
 		/////////////////////////////////////////////////////////////////////////
@@ -93,6 +93,9 @@ public class BemRN {
 		////////---DA---///////
 		double da = 0.0;
 		da = (((b.getCb() - b.getVr()) * b.getI()) / 12) * b.getN();
+		if (da < b.getVr()){
+			da = b.getVr();
+		}
 		b.setDa(da);
 		///////////////////////
 		

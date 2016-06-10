@@ -43,6 +43,8 @@ public class MBBem implements Serializable{
 			}
 		}
 		bem.setNome(bem2.getNome());
+		bem.setDataAquisicao(bem2.getDataAquisicao());
+		bem.setCb(bem2.getCb());
 		bem.setVd_util(bem2.getVd_util());
 		bem.setTurno(bem2.getTurno());
 		bem.setVr(bem2.getVr());

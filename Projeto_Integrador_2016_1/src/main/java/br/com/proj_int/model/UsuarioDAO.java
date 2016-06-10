@@ -36,7 +36,6 @@ public class UsuarioDAO implements IUsuarioDAO {
 				u.setId(rs.getInt("id"));
 				u.setLogin(rs.getString("login"));
 				u.setSenha(rs.getString("senha"));
-				u.setTipo(rs.getString("tipo"));
 				user2 = u;
 			} else {
 				user2 = null;
@@ -53,6 +52,21 @@ public class UsuarioDAO implements IUsuarioDAO {
 	@Override
 	public void insert(Usuario user) {
 		// TODO Auto-generated method stub
+		Connection conexao = null;
+		PreparedStatement psInsert = null;
+		String sql = "INSERT INTO usuario (login, senha)"
+				+ " VALUES (?, ?)";
+		try {
+			conexao = this.conexao;
+			psInsert = conexao.prepareStatement(sql);
+			psInsert.setString(1, user.getLogin());
+			psInsert.setString(2, user.getSenha());
+			psInsert.executeUpdate();
+		}catch (Exception e){
+			System.err.println("----------------------");
+			System.err.println("Erro no insert_Usuario");
+			e.printStackTrace();			
+		}
 
 	}
 
@@ -87,7 +101,6 @@ public class UsuarioDAO implements IUsuarioDAO {
 				u.setId(rs.getInt("id"));
 				u.setLogin(rs.getString("login"));
 				u.setSenha(rs.getString("senha"));
-				u.setTipo(rs.getString("tipo"));
 				lsUsuarios.add(u);
 			}
 		} catch (Exception e) {

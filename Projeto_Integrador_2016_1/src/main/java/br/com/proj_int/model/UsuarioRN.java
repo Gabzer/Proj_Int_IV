@@ -1,7 +1,5 @@
 package br.com.proj_int.model;
 
-import java.util.List;
-
 import br.com.proj_int.util.DAOFactory;
 
 public class UsuarioRN {
@@ -17,11 +15,9 @@ public class UsuarioRN {
 		user2 = this.userDAO.select(user);
 		return user2;
 	}
-
-	public List<Usuario> listar(Usuario user) {
-		List<Usuario> lsUsuarios = null;
-		lsUsuarios = this.userDAO.selectAll();
-		return lsUsuarios;
+	
+	public void salvar(Usuario user){
+		userDAO.insert(user);
 	}
 
 }
