@@ -19,7 +19,9 @@
 					<h:inputText value="#{mbbem.bem.vr}" />
 					<h:outputLabel value="Data da Aquisição: "/>
 					<h:inputText value="#{mbbem.bem.dataAquisicao}" 
-						maxlength="10" onkeypress="formatarData('##/##/####', this);"/>
+						maxlength="10" onkeypress="formatarData('##/##/####', this);">
+						<f:convertDateTime dateStyle="medium" />
+					</h:inputText>
 					<h:outputLabel value="Valor de compra: " />
 					<h:inputText value="#{mbbem.bem.cb}" />
 					<h:outputLabel value="Se usado, quanto tempo: " />

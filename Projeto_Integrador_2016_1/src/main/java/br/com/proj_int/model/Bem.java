@@ -1,5 +1,7 @@
 package br.com.proj_int.model;
 
+import java.util.Date;
+
 public class Bem {
 
 	private int id;
@@ -7,8 +9,8 @@ public class Bem {
 	private int vd_util;
 	private int turno;
 	private int temp_uso;
-	private String dataAquisicao;
-	private String dataReferencia;
+	private Date dataAquisicao;
+	private Date dataReferencia;
 
 	private double cb;
 	private double vr;
@@ -115,19 +117,19 @@ public class Bem {
 		this.id = id;
 	}
 
-	public String getDataAquisicao() {
+	public Date getDataAquisicao() {
 		return dataAquisicao;
 	}
 
-	public void setDataAquisicao(String dataAquisicao) {
+	public void setDataAquisicao(Date dataAquisicao) {
 		this.dataAquisicao = dataAquisicao;
 	}
 
-	public String getDataReferencia() {
+	public Date getDataReferencia() {
 		return dataReferencia;
 	}
 
-	public void setDataReferencia(String dataReferencia) {
+	public void setDataReferencia(Date dataReferencia) {
 		this.dataReferencia = dataReferencia;
 	}
 

@@ -3,6 +3,7 @@ package br.com.proj_int.model;
 import java.util.List;
 
 import br.com.proj_int.util.DAOFactory;
+import br.com.proj_int.util.Utilitarios;
 
 public class BemRN {
 	
@@ -23,7 +24,9 @@ public class BemRN {
 		this.bemDAO.insert(bem);
 	}
 	
-	public Bem calcular(Bem bem){		
+	public Bem calcular(Bem bem){
+		Utilitarios util = new Utilitarios();
+		
 		b = bemDAO.selectById(bem);		
 				
 		b.setTurno(bem.getTurno());
@@ -32,32 +35,35 @@ public class BemRN {
 		
 		//////////////////////////calculo do tempo (N)//////////////////////////
 		////////////////////////////////////////////////////////////////////////
+		String dat_aqui = util.converteDataParaString(b.getDataAquisicao());
+		String dat_ref = util.converteDataParaString(b.getDataReferencia());
+		
 		////anos
 		int anos = 0;
 		double tempo = 0.0;
-		int ano1 = Integer.parseInt(b.getDataAquisicao().substring(6, 10));
-		int ano2 = Integer.parseInt(b.getDataReferencia().substring(6, 10));
+		int ano1 = Integer.parseInt(dat_aqui.substring(0, 4));
+		int ano2 = Integer.parseInt(dat_ref.substring(0, 4));
 		anos = ano2 - ano1 - 1;
 		
 		////mesesAquisição
-		int dia1 = Integer.parseInt(b.getDataAquisicao().substring(0,2));
+		int dia1 = Integer.parseInt(dat_aqui.substring(9, 11));
 		int mes1 = 0;
 		if(dia1 < 16){
-			mes1 = Integer.parseInt(b.getDataAquisicao().substring(3, 5));
+			mes1 = Integer.parseInt(dat_aqui.substring(5, 7));
 			mes1 = 12 - mes1;
 		} else {
-			mes1 = Integer.parseInt(b.getDataAquisicao().substring(3, 5));
+			mes1 = Integer.parseInt(dat_aqui.substring(5, 7));
 			mes1 = 11 - mes1;
 		}////
 		
 		////mesesReferência
-		int dia2 = Integer.parseInt(b.getDataReferencia().substring(0,2));
+		int dia2 = Integer.parseInt(dat_ref.substring(9, 11));
 		int mes2 = 0;
 		if(dia2 < 16){
-			mes2 = Integer.parseInt(b.getDataReferencia().substring(3, 5));
+			mes2 = Integer.parseInt(dat_ref.substring(5, 7));
 			mes2 = 12 - mes2;
 		} else {
-			mes2 = Integer.parseInt(b.getDataReferencia().substring(3, 5));
+			mes2 = Integer.parseInt(dat_ref.substring(5, 7));
 			mes2 = 11 - mes2;
 		}////
 		
