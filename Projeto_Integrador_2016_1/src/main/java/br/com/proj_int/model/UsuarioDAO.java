@@ -23,7 +23,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 		PreparedStatement ps = null;
 		ResultSet rs = null;
 		String sql = "SELECT id, login, senha, tipo FROM usuario "
-				+ "WHERE login = ? AND senha = ?";
+				+ "WHERE login = ? AND senha = md5(?)";
 		
 		try {
 			conexao = this.conexao;
@@ -55,7 +55,7 @@ public class UsuarioDAO implements IUsuarioDAO {
 		Connection conexao = null;
 		PreparedStatement psInsert = null;
 		String sql = "INSERT INTO usuario (login, senha)"
-				+ " VALUES (?, ?)";
+				+ " VALUES (?, md5(?))";
 		try {
 			conexao = this.conexao;
 			psInsert = conexao.prepareStatement(sql);
