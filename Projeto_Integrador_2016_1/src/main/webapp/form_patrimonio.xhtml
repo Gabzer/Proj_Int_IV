@@ -8,27 +8,35 @@
 
 <ui:composition template="/template/layout.xhtml">
 	<ui:define name="principal">
-		<div align="center">
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Tipo de Patrimônio: " />
-					<h:inputText value="#{mbbem.bem.nome}" />
-					<h:outputLabel value="Vida Útil: " />
-					<h:inputText value="#{mbbem.bem.vd_util}" />
-					<h:outputLabel value="Valor Residual" />
-					<h:inputText value="#{mbbem.bem.vr}" />
-					<h:outputLabel value="Data da Aquisição: "/>
-					<h:inputText value="#{mbbem.bem.dataAquisicao}" 
-						maxlength="10" onkeypress="formatarData('##/##/####', this);">
-						<f:convertDateTime dateStyle="medium" />
-					</h:inputText>
-					<h:outputLabel value="Valor de compra: " />
-					<h:inputText value="#{mbbem.bem.cb}" />
-					<h:outputLabel value="Se usado, quanto tempo: " />
-					<h:inputText value="#{mbbem.bem.temp_uso}"/>
-				</h:panelGrid>
-				<h:commandButton value="Salvar" action="#{mbbem.actionSalvar}"/>
-			</h:form>
+		<div class="col-md-6">
+			<div align="center">
+				<div class="letraK">
+					<h:outputLabel value="Formulário de Cadastro de Patrimônio" />
+				</div>
+				<h:form>
+					<h:panelGrid columns="2" styleClass="form-inline">
+						<h:outputLabel value="Tipo de Patrimônio: " />
+						<h:inputText value="#{mbbem.bem.nome}" styleClass="form-control" />
+						<h:outputLabel value="Vida Útil: " />
+						<h:inputText value="#{mbbem.bem.vd_util}"
+							styleClass="form-control" />
+						<h:outputLabel value="Valor Residual" />
+						<h:inputText value="#{mbbem.bem.vr}" styleClass="form-control" />
+						<h:outputLabel value="Data da Aquisição: " />
+						<h:inputText value="#{mbbem.bem.dataAquisicao}"
+							styleClass="form-control" maxlength="10"
+							onkeypress="formatarData('##/##/####', this);">
+							<f:convertDateTime dateStyle="medium" />
+						</h:inputText>
+						<h:outputLabel value="Valor de compra: " />
+						<h:inputText value="#{mbbem.bem.cb}" styleClass="form-control" />
+						<h:outputLabel value="Se usado, quanto tempo: " />
+						<h:inputText value="#{mbbem.bem.temp_uso}"
+							styleClass="form-control" />
+					</h:panelGrid>
+					<h:commandButton value="Salvar" action="#{mbbem.actionSalvar}" styleClass="btn btn-info" style="margin-left:150px;margin-top:20px;" />
+				</h:form>
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>

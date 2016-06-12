@@ -1,3 +1,7 @@
+@CHARSET "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Kaushan+Script);
+
 .box {
 	width:100%;
 	height:50%;
@@ -14,10 +18,17 @@
 	color: #000;
 }
 
-.container {
-	margin:auto;
-	height:450px;
-	width:900px;
-	background: #c0c0c0;
-	border: solid;
+#menu{
+	width: 20%;
+	margin-left: 110px;
+	margin-top: 40px;
 }
+
+.letraK{
+	text-align: center;
+	font-family: 'Kaushan Script';
+	font-size: 28px;
+}
+
+
+

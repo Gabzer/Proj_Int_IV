@@ -6,12 +6,28 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core">
 
+
+
+<h:head>
+	<h:outputStylesheet library="css" name="style.css" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<h:outputStylesheet library="css" name="menu.css" />
+</h:head>
 <h:form>
-	<h:panelGrid>
-		<h:commandLink value="Home"  action="home"/>
-		<h:commandLink value="Incluir Usuário"  action="form_usuario" />
-		<h:commandLink value="Incluir Patrimônio"  action="form_patrimonio"/>
-		<h:commandLink value="Calcular"  action="#{mbuser.actionProcurar}"/>
-	</h:panelGrid>
+	<div class="col-md-12">
+		<div id='cssmenu'>
+			<ul>
+				<h:commandLink styleClass="active" />
+				<li class='active'><h:commandLink value="Home" action="home" /></li>
+				<li><h:commandLink value="Incluir Usuário"
+						action="form_usuario" /></li>
+				<li><h:commandLink value="Incluir Patrimônio"
+						action="form_patrimonio" /></li>
+				<li><h:commandLink value="Calcular"
+						action="#{mbuser.actionProcurar}" /></li>
+			</ul>
+		</div>
+	</div>
 </h:form>
+
 </html>
