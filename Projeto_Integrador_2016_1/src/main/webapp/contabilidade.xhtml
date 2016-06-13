@@ -10,26 +10,41 @@
 	<ui:define name="principal">
 		<h:form>
 			<div class="col-md-6">
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Tipo de Patrimônio: " />
-					<h:selectOneMenu value="#{mbbem.bem.id}">
-						<f:selectItems value="#{mbbem.actionListar}" var="objPatrimonio"
-							itemLabel="#{objPatrimonio.nome}" itemValue="#{objPatrimonio.id}" />
-					</h:selectOneMenu>
-					<h:outputLabel value="Turnos Trabalhados: " />
-					<h:selectOneMenu value="#{mbbem.bem.turno}">
-						<f:selectItem itemLabel="1" itemValue="100" />
-						<f:selectItem itemLabel="2" itemValue="150" />
-						<f:selectItem itemLabel="3" itemValue="200" />
-					</h:selectOneMenu>
-					<h:outputLabel value="Data de Referência: " />
-					<h:inputText value="#{mbbem.bem.dataReferencia}" maxlength="10"
-						onkeypress="formatarData('##/##/####', this);" />
-					<h:outputLabel value="Valor de Venda: " />
-					<h:inputText value="#{mbbem.bem.vv}" />
-				</h:panelGrid>
-				<h:commandButton value="Calcular" action="#{mbbem.actionCalcular}" />
-
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<strong>Calcular Depreciação</strong>
+					</div>
+					<div class="panel-body">
+						<h:panelGrid columns="2">
+							<h:outputLabel value="Tipo de Patrimônio: " />
+							<h:selectOneMenu value="#{mbbem.bem.id}"
+								styleClass="form-control">
+								<f:selectItems value="#{mbbem.actionListar}" var="objPatrimonio"
+									itemLabel="#{objPatrimonio.nome}"
+									itemValue="#{objPatrimonio.id}" />
+							</h:selectOneMenu>
+							<h:outputLabel value="Turnos Trabalhados: " />
+							<h:selectOneMenu value="#{mbbem.bem.turno}"
+								styleClass="form-control">
+								<f:selectItem itemLabel="1" itemValue="100" />
+								<f:selectItem itemLabel="2" itemValue="150" />
+								<f:selectItem itemLabel="3" itemValue="200" />
+							</h:selectOneMenu>
+							<h:outputLabel value="Data de Referência: " />
+							<h:inputText value="#{mbbem.bem.dataReferencia}"
+								styleClass="form-control" maxlength="10"
+								onkeypress="formatarData('##/##/####', this);">
+								<f:convertDateTime dateStyle="medium" />
+							</h:inputText>
+							<h:outputLabel value="Valor de Venda: " />
+							<h:inputText value="#{mbbem.bem.vv}" styleClass="form-control" />
+						</h:panelGrid>
+						<h:commandButton value="Calcular" action="#{mbbem.actionCalcular}"
+							styleClass="btn btn-primary"
+							style="margin-left:180px;
+						margin-top:10px;" />
+					</div>
+				</div>
 			</div>
 		</h:form>
 	</ui:define>

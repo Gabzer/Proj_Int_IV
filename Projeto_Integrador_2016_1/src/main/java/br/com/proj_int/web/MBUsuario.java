@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-
 import br.com.proj_int.model.Usuario;
 import br.com.proj_int.model.UsuarioRN;
 
@@ -16,24 +15,27 @@ public class MBUsuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Usuario user = new Usuario();
 	private List<Usuario> lsUsuarios = null;
-
+	String msg= "senha Invalida";
 	public String actionProcurar() {
 		Usuario user2 = new Usuario();
 		UsuarioRN userRN = new UsuarioRN();
 		user2 = userRN.procurar(user);
 		if (user2 == null) {
-			return "negado?faces-redirect=true";
+			
+			return  msg;
 		} else {
 			return "contabilidade?faces-redirect=true";
 		}
 	}
 	
 	public String actionSalvar (){
+		System.out.println("passou");
 		UsuarioRN userRN = new UsuarioRN();
 		userRN.salvar(user);
 		return "home";
 	}
 	
+
 	///////////////////gets-setters//////////////////
 	/////////////////////////////////////////////////
 	public Usuario getUser() {

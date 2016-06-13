@@ -8,16 +8,33 @@
 
 <ui:composition template="/template/layout.xhtml">
 	<ui:define name="principal">
-		<div align="center">
-			<h:form>
-				<h:panelGrid columns="2">
-					<h:outputLabel value="Login: " />
-					<h:inputText value="#{mbuser.user.login}" />
-					<h:outputLabel value="Senha: " />
-					<h:inputSecret value="#{mbuser.user.senha}" />
-				</h:panelGrid>
-				<h:commandButton value="Cadastrar" action="#{mbuser.actionSalvar}"/>
-			</h:form>
+		<div class="col-md-6">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<strong>Formulário de Cadastro de Usuário</strong>
+				</div>
+				<div align="center" class="box">
+					<h:form>
+						<h:panelGrid columns="3" styleClass="panelGrid2">
+							<f:facet name="header">
+								<h:outputText value="#{msgs.greeting}" styleClass="emphasis" />
+							</f:facet>
+							#{msgs.loginPrompt}:
+							<h:inputText size="1" id="Log" value="#{mbuser.user.login}" required="true"
+								styleClass="form-control" label="Campo Obrigatório" />
+								<h:message for="Log" errorClass="errors" />
+							#{msgs.senhaPrompt}:
+							<h:inputSecret id="Sen" value="#{mbuser.user.senha}"
+								styleClass="form-control" required="true"
+								label="Campo Obrigatório" />
+							<h:message for="Sen" errorClass="errors" />
+						</h:panelGrid>
+						<h:commandButton value="Cadastrar" action="#{mbuser.actionSalvar}"
+							styleClass="btn btn-primary"
+							style="margin-top:10px;margin-left:80px;" />
+					</h:form>
+				</div>
+			</div>
 		</div>
 	</ui:define>
 </ui:composition>

@@ -17,31 +17,36 @@
 	<h:form>
 		<div class="col-md-12"
 			style="margin-top: 180px; background-color: white;">
-			<div class="col-md-1">
-			</div>
-			<div class="col-md-1" style="margin-left:80px;margin-top: 60px;">
-			<h:graphicImage library="imagens" name="logo.jpg" style="width:250px;height:130px;"/>
+			<div class="col-md-1"></div>
+			<div class="col-md-1" style="margin-top: 60px;">
+				<h:graphicImage library="imagens" name="logo.jpg"
+					style="width:250px;height:130px;" />
 			</div>
 			<div class="col-md-8">
-			<h:panelGrid columns="2" styleClass="panelGrid" >
-				<f:facet name="header">
+				<div align="center" style="margin-top: 20px;">
 					<h:outputLabel value="Bem Vindo !" />
-				</f:facet>
+				</div>
+				<h:panelGrid columns="2" styleClass="panelGrid">
+					<f:facet name="header">
+						<h:outputText value="#{msgs.greeting}" styleClass="emphasis" />
+					</f:facet>
 				#{msgs.loginPrompt}:
 					<p:inputText id="Login" value="#{mbuser.user.login}"
-					required="true" label="Campo Obrigatório" styleClass="form-control" />
-				<p:watermark for="Login" value="Digite Seu Login" />
-				<h:message for="Login" errorClass="errors" />
+						required="true" label="Campo Obrigatório"
+						styleClass="form-control" />
+					<p:watermark for="Login" value="Digite Seu Login" />
+					<h:message for="Login" errorClass="errors" />
 				#{msgs.senhaPrompt}:
-				<p:inputText id="Senha" value="#{mbuser.user.senha}" required="true"
-					label="Campo Obrigatório" styleClass="form-control" />
-				<p:watermark for="Senha" value="Digite Sua Senha" />
-				<h:message for="Senha" errorClass="errors" />
-			</h:panelGrid>
-			<br />
-			<h:commandButton value="Login" action="#{mbuser.actionProcurar}"
-				styleClass="btn btn-info" style="margin-left:350px;margin-bottom:50px;"/>
-				</div>
+				<p:password id="Senha" value="#{mbuser.user.senha}" required="true"
+						label="Campo Obrigatório" styleClass="form-control" />
+					<p:watermark for="Senha" value="Digite Sua Senha" />
+					<h:message for="Senha" errorClass="errors" />
+				</h:panelGrid>
+				<br />
+				<h:commandButton value="Login" action="#{mbuser.actionProcurar}"
+					styleClass="btn btn-primary"
+					style="margin-left:470px;margin-bottom:50px;" />
+			</div>
 		</div>
 	</h:form>
 </h:body>

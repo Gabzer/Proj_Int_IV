@@ -4,20 +4,24 @@
 
 .box {
 	width:100%;
-	height:50%;
 	background: white;
 	margin: auto;
-	border: solid;
-	height: 280px;
+	margin-top:10px;
+	margin-bottom:10px;
 }
 
 .panelGrid {
-	margin-top:80px;
+	margin-top:40px;
 	margin-left:280px;
 	font-family: sans-serif;
 	color: #000;
 }
-
+.panelGrid2 {
+	width:95%;
+	margin-top:40px;
+	font-family: sans-serif;
+	color: #000;
+}
 #menu{
 	width: 20%;
 	margin-left: 110px;
@@ -27,8 +31,13 @@
 .letraK{
 	text-align: center;
 	font-family: 'Kaushan Script';
-	font-size: 28px;
+	font-size: 22px;
 }
 
+#container{
+	width: 100%;
+	height: 100%;
+	
+}
 
 
